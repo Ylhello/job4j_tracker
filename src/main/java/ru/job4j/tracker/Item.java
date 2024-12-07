@@ -19,4 +19,26 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Item() {
+    }
+
+    public Item(String name) {
+        this.name = name;
+    }
+
+    public Item(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public void Show() {
+        System.out.println(this.id);
+        System.out.println(this.name);
+    }
+
+    public static void main(String[] args) {
+        Item item = new Item(600, "Transcend");
+        item.Show();
+    }
 }
