@@ -9,7 +9,7 @@ public class MagicBall {
         System.out.println("Будет ли завтра снег?");
         String name = input.nextLine();
         int answer = new Random().nextInt(3);
-        switch (answer) {
+        switch(answer) {
             case 0:
                 System.out.println("Да");
                 break;
