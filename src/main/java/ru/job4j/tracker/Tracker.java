@@ -50,8 +50,7 @@ public class Tracker {
         result = Arrays.copyOf(result, count);
         return result;
     }
-
-
+    
     public Item findById(int id) {
         int index = indexOf(id);
         return index != - 1 ? items[index] : null;
