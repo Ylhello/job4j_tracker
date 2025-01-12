@@ -28,6 +28,17 @@ public class Tracker {
         return result;
     }
 
+    public boolean delete(int id) {
+        items[indexOf(id)] = null;
+        int start = indexOf(id) + 1;
+        int distPos = indexOf(id);
+        int length = size - indexOf(id) - 1;
+        System.arraycopy(items, start, items, distPos, length);
+        items[size - 1] = null;
+        size--;
+        return true;
+    }
+
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         if (index != - 1) {
@@ -50,7 +61,7 @@ public class Tracker {
         result = Arrays.copyOf(result, count);
         return result;
     }
-    
+
     public Item findById(int id) {
         int index = indexOf(id);
         return index != - 1 ? items[index] : null;
