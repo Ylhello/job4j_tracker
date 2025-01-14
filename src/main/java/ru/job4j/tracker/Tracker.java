@@ -29,15 +29,17 @@ public class Tracker {
     }
 
     public boolean delete(int id) {
-        items[indexOf(id)] = null;
-        int start = indexOf(id) + 1;
-        int distPos = indexOf(id);
-        int length = size - indexOf(id) - 1;
-        System.arraycopy(items, start, items, distPos, length);
-        items[size - 1] = null;
-        size--;
-        return true;
+        int index = indexOf(id);
+        if (index != - 1) {
+            items[index] = null;
+            items[index] = items[size - 1];
+            items[size - 1] = null;
+            size--;
+            return true;
+        }
+        return false;
     }
+
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
@@ -54,7 +56,7 @@ public class Tracker {
         int count = 0;
         for (int index = 0; index < items.length; index++) {
             Item name = items[index];
-            if (name.getName().equals(key)) {
+            if (name != null && name.getName().equals(key)) {
                 result[count++] = name;
             }
         }
